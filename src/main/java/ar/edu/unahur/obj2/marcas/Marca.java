@@ -6,10 +6,12 @@ public abstract class Marca {
 
         protected Double gramosLupulo;
         protected Pais pais;
+        protected Double precioPorLitro;
 
-        public Marca(Double gramosLupulo, Pais pais){
+        public Marca(Double gramosLupulo, Pais pais, Double precioPorLitro){
             this.gramosLupulo = gramosLupulo;
             this.pais = pais;
+            this.precioPorLitro = precioPorLitro;
         }
 
         protected Double graduacionCervezaNegra(){
@@ -24,6 +26,10 @@ public abstract class Marca {
 
         public Pais getPais() {
             return pais;
+        }
+
+        public Double getPrecioPorLitro() {
+            return precioPorLitro;
         }
 
 }

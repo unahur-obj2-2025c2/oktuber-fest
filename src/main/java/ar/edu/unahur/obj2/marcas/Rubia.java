@@ -6,8 +6,8 @@ public class Rubia extends Marca {
 
     private final Double graduacionEstaMarca;
 
-    public Rubia(Double gramosLupulo, Pais pais, Double graduacionEstaMarca){
-        super(gramosLupulo, pais);
+    public Rubia(Double gramosLupulo, Pais pais, Double precioPorLitro, Double graduacionEstaMarca){
+        super(gramosLupulo, pais, precioPorLitro);
         this.graduacionEstaMarca = graduacionEstaMarca;
     }
 

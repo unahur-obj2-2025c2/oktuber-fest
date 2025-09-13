@@ -4,8 +4,8 @@ import ar.edu.unahur.obj2.pais.Pais;
 
 public class Roja extends Marca {
 
-    public Roja(Double gramosLupulo, Pais pais ){
-        super(gramosLupulo, pais);
+    public Roja(Double gramosLupulo, Pais pais, Double precioPorLitro){
+        super(gramosLupulo, pais, precioPorLitro);
     }
 
     @Override

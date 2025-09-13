@@ -1,6 +1,7 @@
 package ar.edu.unahur.obj2.persona;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -135,5 +136,13 @@ public class Persona {
             capacidadJarra = jarra.getLitros();
         }
         return Boolean.TRUE;
+    }
+
+    public Double gastoTotal(){
+        return jarrasTomadas.stream().mapToDouble(j -> j.getPrecioDeVenta()).sum();
+    }
+
+    public Jarra jarraMasCara(){
+        return jarrasTomadas.stream().max(Comparator.comparingDouble(Jarra::getPrecioDeVenta)).orElse(null);
     }
 }
