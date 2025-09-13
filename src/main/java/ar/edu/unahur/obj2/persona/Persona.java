@@ -2,6 +2,7 @@ package ar.edu.unahur.obj2.persona;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -114,13 +115,29 @@ public class Persona {
     public Boolean sonCompatibles(Persona unaPersona){
         Set<Marca> marcasPersona1 = this.jarrasTomadas.stream().map(j -> j.getMarca()).collect(Collectors.toSet());
         Set<Marca> marcasPersona2 = unaPersona.getJarrasTomadas().stream().map(j -> j.getMarca()).collect(Collectors.toSet());
+        Set<Marca> todasLasMarcas = new HashSet<>();
+        todasLasMarcas.addAll(marcasPersona1);
+        todasLasMarcas.addAll(marcasPersona2);
         Integer coincidencias= 0;
         for (Marca marca : marcasPersona1) {
             if (marcasPersona2.contains(marca)) {
                 coincidencias += 1;
             }
         }
-        return coincidencias > marcasPersona1.size() / 2;
+        return coincidencias > todasLasMarcas.size() / 2;
+    }
+
+    public Boolean sonCompatibles2(Persona unaPersona){
+        Set<Marca> marcasPersona1 = this.jarrasTomadas.stream().map(j -> j.getMarca()).collect(Collectors.toSet());
+        Set<Marca> marcasPersona2 = unaPersona.getJarrasTomadas().stream().map(j -> j.getMarca()).collect(Collectors.toSet());
+        
+        Set<Marca> interseccion = new HashSet<>(marcasPersona1);
+        interseccion.retainAll(marcasPersona2); // intersección
+
+        Set<Marca> union = new HashSet<>(marcasPersona1);
+        union.addAll(marcasPersona2); // unión
+
+        return interseccion.size() > union.size() / 2;
     }
 
     public Set<Carpa> carpasVisitadasSegunJarras(){

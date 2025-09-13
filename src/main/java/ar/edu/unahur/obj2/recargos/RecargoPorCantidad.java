@@ -7,7 +7,6 @@ public class RecargoPorCantidad implements IRecargo{
     private Double porcentajeSiCumple = 40.0;
     private Double porcentajeSiNoCumple = 25.0;
 
-
     public RecargoPorCantidad(){
 
     }
